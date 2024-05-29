@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol NetworkInteractor {
+protocol NetworkInteractorProtocol {
     
 }
 
-extension NetworkInteractor {
+extension NetworkInteractorProtocol {
     func getJSONFromURL<T>(request: URLRequest, type: T.Type) async throws -> T where T:Codable {
         let (data, response) = try await URLSession.getData(request: request)
         

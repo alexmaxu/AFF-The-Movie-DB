@@ -8,8 +8,9 @@
 import Foundation
 
 extension URLRequest {
-    static func get(url: URL) -> URLRequest {
+    static func get(url: URL, page: Int) -> URLRequest {
         var request = URLRequest(url: url)
+        request.url?.append(queryItems: [URLQueryItem(name: "page", value: "\(page)")])
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = [
             "accept": "application/json",

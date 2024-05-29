@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - Pelicula
-struct Pelicula: Codable {
+struct TheMovieDBDTO: Codable {
     let page: Int
-    let results: [Result]
+    let results: [Movie]
     let totalPages, totalResults: Int
     
     enum CodingKeys: String, CodingKey {
@@ -21,12 +21,13 @@ struct Pelicula: Codable {
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Movie: Identifiable, Codable {
+    let id: Int
+    let originalTitle: String
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]
-    let id: Int
-    let originalLanguage, originalTitle, overview: String
+    let originalLanguage, overview: String
     let popularity: Double
     let posterPath, releaseDate, title: String
     let video: Bool

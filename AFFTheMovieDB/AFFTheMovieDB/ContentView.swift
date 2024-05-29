@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var vm = TopRatedMovieVM()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            Text("holaholaholahola")
-            Text("Push del gitignore.")
+        List {
+            ForEach(vm.topRatedMovies) { movie in
+                Text(movie.title)
+            }
         }
     }
 }
